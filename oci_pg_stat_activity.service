@@ -1,0 +1,12 @@
+[Unit]
+After=network.target network-online.target
+Description=systemd service unit to send notifications based on pg_stat_activity view
+Wants=network-online.target
+
+[Service]
+User=opc
+Type=oneshot
+ExecStart=/bin/bash /etc/systemd/system/oci_pg_stat_acitivity.sh start
+
+[Install]
+WantedBy=multi-user.target

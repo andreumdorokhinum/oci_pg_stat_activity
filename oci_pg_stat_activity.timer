@@ -1,0 +1,11 @@
+[Unit]
+Description=systemd service timer for oci_pg_stat_activity
+
+[Timer]
+AccuracySec=1s
+Persistent=true
+OnCalendar=*-*-* *:*:00/6
+Unit=oci_pg_stat_activity.service
+
+[Install]
+WantedBy=timers.target
