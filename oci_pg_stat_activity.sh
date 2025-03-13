@@ -31,8 +31,7 @@ start(){
              " | grep -E '\b[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{6}\+[0-9]{2}\b')
 
     if [[ -n $notification_condition_and_timestamp ]]; then
-        oci ons message publish --title "ALERT!" --body "There is a big query running in your DB!" --topic-id ocid1.onstopic.oc1.aa-bbbbbbbbb-1.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-        echo "fire in the hall!"
+        oci ons message publish --title "Alert" --body "An insert query is running in your db" --topic-id ocid1.onstopic.oc1.aa-bbbbbbbbb-1.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
         flu_vars
         set_notification_threshold_timestamp $notification_condition_and_timestamp
         unset notification_condition_and_timestamp
